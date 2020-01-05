@@ -1,0 +1,47 @@
+extends layout
+
+block content
+	.post-container
+		form(method='post',action='/posts/add',enctype='multipart/form-data')
+			legend Add Post
+			.group
+				label Title
+				input.control(name='title',type='text', required)
+			.group
+				label Category
+				select.control(name='category')
+					option(value='') SELECT
+					if categories
+						each category,i in categories
+							option(value= '#{category.name}') #{category.name}
+			.group
+				label Body
+				textarea.control(name="body", cols="30", rows="3", id="body", required)
+			.group
+				label Main Image
+				input.control(name='mainImage',type='file')
+			.group
+				label Author
+				select.control(name='author')
+					option(value='Saroj Kumar' selected) Saroj Kumar
+					option(value='Will Smith') Will Smith
+					option(value='John Doe') John Doe
+			.group
+				input.btn(type='submit', value='Add', name='submit')
+			script(src="/ckeditor/ckeditor.js")
+			script
+				| CKEDITOR.replace('body');
+			
+
+			//- For CKEditor 5
+			//- script(src="/ckeditor5/ckeditor.js")
+			//- script.
+			//- 	ClassicEditor.create( document.getElementById( 'body' ), {
+			//- 		// toolbar: [ 'heading', '|', 'bold', 'italic', 'link' ]
+			//- 	} )
+			//- 	.then( editor => {
+			//- 		window.editor = editor;
+			//- 	} )
+			//- 	.catch( err => {
+			//- 		console.error( err.stack );
+			//- 	} );
