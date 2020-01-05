@@ -79,6 +79,8 @@ vcs.xml
 
 # lint
 lint/intermediates/
+
+node_modules/
 lint/generated/
 lint/outputs/
 lint/tmp/
