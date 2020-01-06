@@ -1,0 +1,8 @@
+extends layout
+
+block content
+  .container
+    div(style="padding:15px")
+      h1= message
+      h2= error.status
+      p #{error.stack}

@@ -1,0 +1,15 @@
+extends layout
+
+block content
+	.post-container
+		p.cat-div Existing Categories are: 
+			if categories
+				each category in categories
+					span.cat #{category.name}
+		form(method='post',action='/categories/add')
+			legend Add Category
+			.group
+				label Category
+				input.control(name='category',placeholder='Add Category of your Choice', type='text')
+			.group
+				input.btn(type="submit", value="Add")

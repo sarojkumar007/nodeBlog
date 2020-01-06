@@ -1,0 +1,45 @@
+// After Express Project Template creation
+Do the following setup
+----------------------
+
+Add the require modules >>> const var = require('module'); etc
+
+---------------------------------------------------------------
+app.use(session({
+  secret: 'secret',
+  saveUninitialized: true,
+  resave: true
+}));
+
+---------------------------------------------------------------
+app.use(expressValidator({
+  errorFormatter: function(param, msg, value){
+    let namespace = param.split('.'),
+    root = namespace.shift(),
+    formParam = root;
+    while(namespace.length){
+      formParam += '['+ namespace.shift() +']';
+    }
+    return {
+      param: formParam,
+      msg: msg,
+      value: value
+    };
+  }
+}));
+
+---------------------------------------------------------------
+app.use(require('connect-flash')());
+app.use((req,res,next)=>{
+  res.locals.messages = require('express-messages')(req,res);
+  next();
+})
+
+---------------------------------------------------------------
+// Make db accessible to router
+app.use((req,res,next)=>{
+  req.db = db;
+  next();
+});
+
+---------------------------------------------------------------

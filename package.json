@@ -1,0 +1,32 @@
+{
+  "name": "nodeblog",
+  "version": "0.0.1",
+  "private": true,
+  "engines": {
+    "node": "12.x"
+  },
+  "scripts": {
+    "start": "node ./bin/www"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sarojkumar007/nodeBlog"
+  },
+  "dependencies": {
+    "cookie-parser": "~1.4.4",
+    "debug": "~2.6.9",
+    "express": "~4.16.1",
+    "http-errors": "~1.6.3",
+    "jade": "~1.11.0",
+    "morgan": "~1.9.1",
+    "mongodb": "*",
+    "monk": "~7.1.1",
+    "connect-flash": "*",
+    "express-messages": "*",
+    "express-session": "^1.17.0",
+    "express-validator": "5.3.1",
+    "multer": "*",
+    "moment": "*"
+  },
+  "license": "MIT"
+}
