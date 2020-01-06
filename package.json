@@ -24,7 +24,7 @@
     "monk": "~7.1.1",
     "connect-flash": "*",
     "express-messages": "*",
-    "express-session": "^1.17.0",
+    "cookie-session": "1.3.3",
     "express-validator": "5.3.1",
     "multer": "*",
     "moment": "*"
