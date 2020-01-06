@@ -186,10 +186,12 @@ a{color: var(--color-4);}
   padding:10px;
 }
 .success{
-  background-color: #83cd29;
-  color: #333;
+  background-color: var(--color-2);
+  color: var(--color-4);
+  border: 1px solid var(--color-4);
 }
 .error{
-  background-color: crimson;
-  color: #fff;
+  background-color: rgb(129, 58, 72);
+  color: red;
+  border: 1px solid red;
 }
