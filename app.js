@@ -35,7 +35,7 @@ app.locals.truncate = function(text, length){
   return  text.substring(0, length)+' ... ';
 }
 
-app.get('/app/:id', checkUserAuth, findApp, renderView, sendJSON);
+app.get('/app/:id', checkUserAuth);
 function checkUserAuth(req, res, next) {
   if (req.session.user) return next();
   return next(new NotAuthorizedError());
