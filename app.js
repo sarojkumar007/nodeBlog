@@ -3,7 +3,7 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-const session = require('express-session');
+const session = require('cookie-session');
 const multer = require('multer');
 const upload = multer({dest:'./public/uploads'});
 const moment = require('moment');
@@ -33,6 +33,12 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.locals.moment = moment;
 app.locals.truncate = function(text, length){
   return  text.substring(0, length)+' ... ';
+}
+
+app.get('/app/:id', checkUserAuth);
+function checkUserAuth(req, res, next) {
+  if (req.session.user) return next();
+  return next(new NotAuthorizedError());
 }
 
 app.use(session({
